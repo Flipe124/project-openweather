@@ -5,13 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API de Clima</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <main>
+    <main class="container">
         <div class="box-main">
-            <h1>Clima</h1>
+            <div class="form">
+                <h1>Clima</h1>
+                <div class="form-input">
+                    <input type="text" name="" id="city-name">
+                    <button id="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="data">
+                <div class="data-city-info">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span id="city-data">Cidade</span>
+                    <img src="https://flagsapi.com/BE/shiny/64.png" alt="" id="country">
+                </div>
+                <p id="temperature">
+                    <span>39</span>&deg;C
+                </p>
+                <div id="description">
+                    <p id="description-data">Nublado</p>
+                    <img src="http://openweathermap.org/img/wn/09n.png" alt="" id="weather-icon">
+                </div>
+                <div class="details">
+                    <p id="umidity">
+                        <i class="fa-solid fa-droplet"></i>
+                        <span>78%</span>
+                    </p>
+                    <p id="wind">
+                        <i class="fa-solid fa-wind"></i>
+                        <span>10km/h</span>
+                    </p>
+                </div>
+            </div>
         </div>
     </main>
+    <script src="https://kit.fontawesome.com/1abad94d22.js" crossorigin="anonymous"></script>
 </body>
 </html>
