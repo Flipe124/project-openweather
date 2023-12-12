@@ -11,8 +11,10 @@ const temperatureElement = document.querySelector("#temperature span");
 const descriptionElement = document.querySelector("#description");
 const weatherIconElement = document.querySelector("#weather-icon");
 const countryIconElement = document.querySelector("#country");
-const umidityElement = document.querySelector("#umidity span");
+const humidityElement = document.querySelector("#humidity span");
 const windElement = document.querySelector("#wind span");
+
+const weatherData = document.querySelector("#data");
 
 // Func
 const getweatherData = async (city) => {
@@ -22,10 +24,21 @@ const getweatherData = async (city) => {
     const data = await responseAPI.json();
 
     console.log("DATA" + data);
+    return data;
 };
 
-const showWeatherData = (city) => {
-    getweatherData(city);
+const showWeatherData = async (city) => {
+    const data = await getweatherData(city);
+
+    cityNameElement.innerText = data.name;
+    temperatureElement.innerText = parseInt(data.main.temp);
+    descriptionElement.innerText = data.weather[0].description;
+    weatherIconElement.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
+    countryIconElement.setAttribute("src", apiCountryUrl + data.sys.country);
+    humidityElement.innerText = `${data.main.humidity}%`;
+    windElement.innerText = `${data.wind.speed}Km/h`;
+
+    weatherData.classList.remove("hide")
 };
 
 // Event
