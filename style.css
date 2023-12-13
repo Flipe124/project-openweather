@@ -71,32 +71,42 @@ body {
     align-items: center;
 
     border-top: 1px solid rgb(41, 41, 41);
-    padding-top: 15px;
+    padding: 15px;
 
     background-color: #0795e1;
 }
 
-#data .weather-icon {
-    font-size: 1rem;
+.data-city-info #city-data {
+    margin: 0 15px;
 }
 
 #data #description {
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font: bold;
+    font-size: larger;
+    font-weight: bold;
     text-transform: capitalize;
-    /* margin: 10px; */
 }
 
+#data #description #weather-icon {
+    width: 4rem;
+}
+
+
 #data .details {
-    background-color: aquamarine;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+
+    background-color: aquamarine;
 }
+
+#data #temperature {
+    padding: 20px;
+}
+    
 
 #data #country {
     width: 15px;
