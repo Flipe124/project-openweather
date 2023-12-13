@@ -1,6 +1,6 @@
 
-const APIKEY = "adec8ccc02a175f08abeb38cf96d4931"
-const apiCountryUrl = "https://countryflagsapi.com/png/"
+const APIKEY = "adec8ccc02a175f08abeb38cf96d4931";
+const apiCountryUrl = "https://countryflagsapi.com/png/";
 
 const cityName = document.querySelector("#city-name");
 const searchbutton = document.querySelector("#search");
@@ -8,7 +8,7 @@ const searchbutton = document.querySelector("#search");
 // Data
 const cityNameElement = document.querySelector("#city-data");
 const temperatureElement = document.querySelector("#temperature span");
-const descriptionElement = document.querySelector("#description");
+const descriptionElement = document.querySelector("#description-data");
 const weatherIconElement = document.querySelector("#weather-icon");
 const countryIconElement = document.querySelector("#country");
 const humidityElement = document.querySelector("#humidity span");
@@ -23,7 +23,6 @@ const getweatherData = async (city) => {
     const responseAPI = await fetch(apiWeatherURL);
     const data = await responseAPI.json();
 
-    console.log("DATA" + data);
     return data;
 };
 
@@ -31,21 +30,28 @@ const showWeatherData = async (city) => {
     const data = await getweatherData(city);
 
     cityNameElement.innerText = data.name;
-    temperatureElement.innerText = parseInt(data.main.temp);
+    temperatureElement.innerText = parseInt(data.main.temp) + "°C";
     descriptionElement.innerText = data.weather[0].description;
     weatherIconElement.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
     countryIconElement.setAttribute("src", apiCountryUrl + data.sys.country);
     humidityElement.innerText = `${data.main.humidity}%`;
     windElement.innerText = `${data.wind.speed}Km/h`;
 
-    weatherData.classList.remove("hide")
+    weatherData.classList.remove("hide");
 };
 
 // Event
-searchbutton.addEventListener("click", (e) => {
+searchbutton.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const city = cityName.value;
 
     showWeatherData(city);
 });
+
+cityName.addEventListener("keyup", (e) => {
+    if(e.code == "Enter") {
+        const city = e.target.value;
+        showWeatherData(city);
+    }
+})
