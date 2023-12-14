@@ -87,7 +87,7 @@ body {
 
 #data #description {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 
     font-size: larger;
@@ -96,16 +96,27 @@ body {
 }
 
 #data #description #weather-icon {
-    width: 4rem;
+    width: 150px;
 }
 
 
 #data .details {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
 
-    background-color: aquamarine;
+#data .details span {
+    color: #706868;
+    font-weight: 700;
+    font-size: 18px;
+    vertical-align: super;
+}
+
+#data .details i {
+    margin: 10px;
+    font-size: 40px;
+    color: #84DBFF;
 }
 
 #data #temperature {
