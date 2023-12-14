@@ -38,7 +38,7 @@ const showWeatherData = async (city) => {
     cityNameElement.innerText = data.name;
     temperatureElement.innerText = parseInt(data.main.temp) + "°C";
     descriptionElement.innerText = data.weather[0].description;
-    weatherIconElement.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
+    weatherIconElement.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`);
     countryIconElement.setAttribute("src", `https://flagsapi.com/${data.sys.country}/shiny/64.png`);
     humidityElement.innerText = `${data.main.humidity}%`;
     windElement.innerText = `${data.wind.speed}Km/h`;
