@@ -28,6 +28,14 @@ const getweatherData = async (city) => {
 const showWeatherData = async (city) => {
     const data = await getweatherData(city);
 
+    if(data.cod === "404") {
+        weatherData.classList.add("hide");
+        showErrorMessage();
+        return
+    }
+    
+    document.querySelector(".error-message p").innerHTML = "";
+
     cityNameElement.innerText = data.name;
     temperatureElement.innerText = parseInt(data.main.temp) + "°C";
     descriptionElement.innerText = data.weather[0].description;
@@ -54,3 +62,11 @@ cityName.addEventListener("keyup", (e) => {
         showWeatherData(city);
     }
 })
+
+// Error
+const showErrorMessage = (field) => {
+    const field_error_message = document.querySelector(".error-message p");
+
+    field_error_message.innerHTML = "Cidade não encontrada, cheque se o nome está escrito corretamente.";
+
+}
