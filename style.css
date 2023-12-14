@@ -76,6 +76,12 @@ body {
     cursor: pointer;
 }
 
+.description-temperature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .data-city-info {
     display: flex;
     justify-content: center;
