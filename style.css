@@ -31,6 +31,10 @@ body {
     text-align: center;
 }
 
+.text-gray {
+    color: #8E8484;
+}
+
 .hide {
     display: none;
 }
@@ -64,7 +68,7 @@ body {
 .form button {
     min-width: 50px;
     margin-left: 8px;
-    background-color: #00ff77;
+    background-color: #0080ff;
     color: #fff;
 
     border: 1px solid #fff;
@@ -109,7 +113,7 @@ body {
 
 #data .details {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     margin-bottom: 30px;
@@ -139,7 +143,7 @@ body {
 }
 
 #data #country {
-    width: 15px;
+    width: 30px;
 }
 
 #data #umidity {
