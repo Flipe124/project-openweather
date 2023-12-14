@@ -1,5 +1,4 @@
-
-const APIKEY = "adec8ccc02a175f08abeb38cf96d4931";
+const APIKEY = "";
 
 const cityName = document.querySelector("#city-name");
 const searchbutton = document.querySelector("#search");
@@ -28,12 +27,12 @@ const getweatherData = async (city) => {
 const showWeatherData = async (city) => {
     const data = await getweatherData(city);
 
-    if(data.cod === "404") {
+    if (data.cod === "404") {
         weatherData.classList.add("hide");
         showErrorMessage();
         return
     }
-    
+
     document.querySelector(".error-message p").innerHTML = "";
 
     cityNameElement.innerText = data.name;
@@ -57,7 +56,7 @@ searchbutton.addEventListener("click", async (e) => {
 });
 
 cityName.addEventListener("keyup", (e) => {
-    if(e.code == "Enter") {
+    if (e.code == "Enter") {
         const city = e.target.value;
         showWeatherData(city);
     }
